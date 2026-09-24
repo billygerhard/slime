@@ -68,10 +68,11 @@ if [ ! -d "$BASE_DIR/sglang" ]; then
 fi
 cd $BASE_DIR/sglang
 git checkout ${SGLANG_COMMIT}
-pip install -e "python[all]" --extra-index-url https://download.pytorch.org/whl/cu129
+pip install -e "python[all]"
 pip install --force-reinstall "cuda-python==12.9"
 pip install --force-reinstall --no-deps \
   torch==2.11.0+cu129 torchvision==0.26.0+cu129 torchaudio==2.11.0+cu129 \
+  torchao==0.17.0+cu129 torchcodec==0.11.1+cu129 \
   --index-url https://download.pytorch.org/whl/cu129
 pip install --force-reinstall --no-deps \
   sglang-kernel==0.4.4 sgl-deep-gemm==0.1.4 \
@@ -110,8 +111,7 @@ pip install --force-reinstall --no-deps \
   nvidia-nvjitlink-cu12 \
   nvidia-nvshmem-cu12 \
   nvidia-nvtx-cu12 \
-  --index-url https://download.pytorch.org/whl/cu129 \
-  --extra-index-url https://pypi.org/simple
+  --index-url https://download.pytorch.org/whl/cu129
 
 
 pip install cmake ninja
